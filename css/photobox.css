@@ -127,3 +127,28 @@ nav #next {
     background-color: rgba(0, 0, 0, 0.6);
     color: floralwhite;
 }
+#lightbox_title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: floralwhite;
+}
+#lightbox_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3em;
+    height: 3em;
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    color: floralwhite;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 3em;
+    cursor: pointer;
+}

@@ -1,7 +1,7 @@
 import {
   loadPicture,loadResource
-} from './photoloader.js';
-import {display_galerie} from './galleryUI.js';
+} from './modules/photoloader.js';
+import {display_galerie} from './modules/galleryUI.js';
 document.querySelector('#load_gallery')
   .addEventListener('click', e => {
 
