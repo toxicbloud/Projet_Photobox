@@ -14,7 +14,7 @@ const displayImage = (imgObj, id) => {
     img.src = `https://webetu.iutnc.univ-lorraine.fr${imgObj.photo.original.href}`;
     img.dataset.uri = `/www/canals5/phox/api/photos/${id}`;
     div.appendChild(img);
-    div.addEventListener('click',async (img)=>{
+    div.addEventListener('click', async (img) => {
         const data = await lightbox.load(img);
         displayLightbox(data);
     });
