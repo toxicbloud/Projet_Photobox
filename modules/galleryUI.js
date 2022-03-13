@@ -3,12 +3,9 @@ import {
 } from "./gallery.js"
 import * as lightbox from "./lightbox.js"
 import { displayLightbox } from "./lightboxUI.js";
-export const display_galerie = async () => {
-    const gallery = await load();
-    console.log(gallery);
+export const display_galerie = async (gallery) => {
     document.getElementById('gallery_container').innerHTML = '';
     gallery.forEach(element => {
-        console.log(element);
         displayImage(element, element.photo.id);
     });
 }
@@ -22,7 +19,6 @@ const displayImage = (imgObj, id) => {
     div.appendChild(img);
     div.addEventListener('click',async (img)=>{
         const data = await lightbox.load(img);
-        console.log(data);
         displayLightbox(data);
     });
     container.appendChild(div);

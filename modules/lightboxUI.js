@@ -1,9 +1,9 @@
 export const displayLightbox = async (data) => {
-    console.log(data);
-    console.log(data.photo.original.href);
     const lightbox = document.getElementById('lightbox_container');
     const img = document.getElementById('lightbox_full_img');
-    img.src = `https://webetu.iutnc.univ-lorraine.fr${data.photo.original.href}`;
+    img.src = `https://webetu.iutnc.univ-lorraine.fr${data.url.href}`;
+    document.getElementById('lightbox_title').textContent = data.titre;
+    document.getElementById('lightbox_description').textContent = data.descr;
     show();
 }
 const show = () => {
@@ -11,9 +11,8 @@ const show = () => {
     lightbox.classList.add('lightbox_container--visible');
     lightbox.classList.remove('lightbox_container--hidden');
 }
-const hide = () => {
+export const hide = () => {
     const lightbox = document.getElementById('lightbox_container');
     lightbox.classList.add('lightbox_container--hidden');
     lightbox.classList.remove('lightbox_container--visible');
 }
-document.getElementById('lightbox_close').addEventListener('click', hide);

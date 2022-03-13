@@ -1,4 +1,4 @@
-import { apiURL } from "./config.js";
+import { apiURL,domainName } from "./config.js";
 import { loadResource } from "./photoloader.js";
 /**
  * 
@@ -6,10 +6,8 @@ import { loadResource } from "./photoloader.js";
  * @returns 
  */
 export const load = async (node) => {
-    console.log(node);
-    console.log(node.target.dataset.uri);
     const {
-        photos
+        photo
     } = await loadResource(node.target.dataset.uri);
-    return photos;
+    return photo;
 }

@@ -1,11 +1,6 @@
-import {
-  loadPicture,loadResource
-} from './modules/photoloader.js';
 import {display_galerie} from './modules/galleryUI.js';
-document.querySelector('#load_gallery')
-  .addEventListener('click', e => {
-
-  })
+import {hide} from './modules/lightboxUI.js';
+import {prev,next,load,first,last} from './modules/gallery.js';
 
 window.addEventListener('load', async e => {
   // [100,101,102,103,104,100,101,102,103,104].forEach(async id => {
@@ -13,8 +8,27 @@ window.addEventListener('load', async e => {
   //   const picture = await loadPicture(id);
   //   displayImage(picture,id);
   // });
-  // document.getElementById('gallery_container').innerHTML='Chargement de la galerie';
-  document.getElementById('load_gallery').addEventListener('click',display_galerie);
+  document.getElementById('load_gallery').addEventListener('click',async ()=>{
+    const gallery = await load();
+    display_galerie(gallery);
+  });
+  document.getElementById('previous').addEventListener('click',async ()=>{
+    const gallery = await prev();
+    display_galerie(gallery);
+  });
+  document.getElementById('next').addEventListener('click',async ()=>{
+    const gallery = await next();
+    display_galerie(gallery);
+  });
+  document.getElementById('first').addEventListener('click',async ()=>{
+    const gallery = await first();
+    display_galerie(gallery);
+  });
+  document.getElementById('last').addEventListener('click',async ()=>{
+    const gallery = await last();
+    display_galerie(gallery);
+  });
+  document.getElementById('lightbox_close').addEventListener('click',hide);
 });
 const displayImage = (imgObj,id) => {
   const container = document.getElementById('gallery_container');
