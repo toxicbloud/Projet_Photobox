@@ -1,6 +1,3 @@
-import {
-    load
-} from "./gallery.js"
 import * as lightbox from "./lightbox.js"
 import { displayLightbox } from "./lightboxUI.js";
 export const display_galerie = async (gallery) => {

@@ -1,4 +1,3 @@
-import { apiURL,domainName } from "./config.js";
 import { loadResource } from "./photoloader.js";
 /**
  * 

@@ -30,13 +30,3 @@ window.addEventListener('load', async e => {
   });
   document.getElementById('lightbox_close').addEventListener('click',hide);
 });
-const displayImage = (imgObj,id) => {
-  const container = document.getElementById('gallery_container');
-  const div = document.createElement('div');
-  div.className = 'vignette';
-  const img = document.createElement('img');
-  img.src = `https://webetu.iutnc.univ-lorraine.fr${imgObj.photo.url.href}`;
-  img.dataset.uri = `/www/canals5/phox/photos/${id}`;
-  div.appendChild(img);
-  container.appendChild(div);
-}
