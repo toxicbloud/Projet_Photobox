@@ -68,6 +68,17 @@ nav #next {
   margin-left: 15%;
 }
 
+#gallery{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0;
+}
+
 /**
   photobox : Galerie
  */
@@ -82,11 +93,30 @@ nav #next {
 .vignette img {
     max-width: 100%;
     height: auto; }
+/* navbar */
+#navbar{
+  background-color: rgb(47, 98, 98);
+  color: white;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
+}
+/* navbar button */
+#navbar button{
+  color: white;
+  background-color: rgb(47, 98, 98);
+  border: none;
+  padding: 1em;
+  font-size: 1.2em;
+  cursor: pointer;
 
+}
 /**
   photobox : Lightbox
- */
+ /* 
+ /*
 .lightbox_container {
     position: absolute;
     top: 0;
@@ -105,7 +135,6 @@ nav #next {
     height: 100vh;
     background: rgba(0, 0, 0, 0.9);
 }
-
 #lightbox-img {
     width: 100%;
     height: 92%;
@@ -136,87 +165,151 @@ nav #next {
     font-size: 1.5em;
     font-weight: bold;
     color: floralwhite;
+    z-index: 900;
 }
 #lightbox_description {
     text-align: center;
     font-size: 1em;
     color: floralwhite;
 }
-.close {
-  width: 60px;
-  height: 60px;
-  position: relative;
-  background: #455a64;
-  border-radius: 50%;
-  box-shadow: 0 0 20px -5px rgba(255, 255, 255, .5);
-  transition: 0.25s ease-in-out;
-  cursor: pointer;
-  animation: fade-in 0.5s ease-out 0.25s both;
-  position: absolute;
+#light_prev{
   z-index: 1100;
-  right: 1em;
+  cursor: pointer;
 }
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: scale(1.1);
- }
+#light_next{
+  z-index: 1100;
+  cursor: pointer;
+} */
+
+/* on change tout */
+.row > .column {
+  padding: 0 8px;
 }
-.close .circle path {
-  stroke: rgba(255, 255, 255, 1);
-  fill: none;
-  stroke-width: 1px;
-  stroke-linecap: round;
-  animation: progress 0.5s ease-out 0.25s both;
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
-@keyframes progress {
-  from {
-    stroke-dasharray: 0 100;
- }
+
+/* Create four equal columns that floats next to eachother */
+.column {
+  float: left;
+  width: 25%;
 }
-.close span {
-  display: block;
-  width: 13px;
-  height: 2px;
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 0 20px -5px rgba(255, 255, 255, .5);
-  border-radius: 20px;
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0,0, 0.9);
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 50%;
+  max-width: 1200px;
+  max-height: 100vh;
+}
+
+/* The Close Button */
+.close {
+  color: white;
   position: absolute;
-  transition: 0.25s ease-in-out;
-  animation: slide-in 0.5s ease-in-out 0.25s both;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
 }
-@keyframes slide-in {
-  from {
-    width: 0;
- }
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
 }
-.close span:nth-child(1) {
-  top: 19px;
-  left: 20px;
-  transform: rotate(45deg);
-  transform-origin: top left;
+
+/* Hide the slides by default */
+.mySlides {
+  display: block;
 }
-.close span:nth-child(2) {
-  top: 19px;
-  right: 20px;
-  transform: rotate(-45deg);
-  transform-origin: top right;
+
+/* myslides img */
+.mySlides img {
+  height: auto;
+  width: auto;
 }
-.close span:nth-child(3) {
-  bottom: 19px;
-  left: 20px;
-  transform: rotate(-45deg);
-  transform-origin: bottom left;
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
 }
-.close span:nth-child(4) {
-  bottom: 19px;
-  right: 20px;
-  transform: rotate(45deg);
-  transform-origin: bottom right;
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
-.close:hover {
-  background: #37474f;
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
-.close:hover span {
-  width: 15px;
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Caption text */
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+img.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

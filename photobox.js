@@ -1,5 +1,5 @@
 import { display_galerie } from './modules/galleryUI.js';
-import { hide } from './modules/lightboxUI.js';
+import * as lightbox from './modules/lightboxUI.js';
 import { prev, next, load, first, last } from './modules/gallery.js';
 
 window.addEventListener('load', async e => {
@@ -16,8 +16,8 @@ window.addEventListener('load', async e => {
     const gallery = await prev();
     display_galerie(gallery);
   });
-  document.getElementById('next').addEventListener('click', async () => {
-    const gallery = await next();
+  document.getElementById('next').addEventListener('click', async (event) => {
+    const gallery = await next(event);
     display_galerie(gallery);
   });
   document.getElementById('first').addEventListener('click', async () => {
@@ -28,5 +28,7 @@ window.addEventListener('load', async e => {
     const gallery = await last();
     display_galerie(gallery);
   });
-  document.getElementById('lightbox_close').addEventListener('click', hide);
+  document.getElementById('lightbox_close').addEventListener('click', lightbox.hide);
+  document.getElementById('lightbox_next').addEventListener('click', lightbox.next);
+  document.getElementById('lightbox_prev').addEventListener('click', lightbox.prev);
 });
